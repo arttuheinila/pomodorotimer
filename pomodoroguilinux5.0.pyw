@@ -1,10 +1,3 @@
-###LINUX SO 1. OPEN THE TEXT FILE?! 2. RIGHT AUDIO FILES. 3. HOW TO KILL THE PROCESSES. ARE THEY THE SAME?
-##KEEP EYE OPEN FOR THE AFTER THE SOUNDS PLAYED THAT ALL GOES WELL
-
-#pysimpelgui
-#POMODORO
-#OPEN pomodo.what work on. 
-
 import time
 import subprocess
 import datetime
@@ -23,16 +16,6 @@ vartti = 15*minute
 
 count = 1
 
-# what is the input key??? datetimenow??
-#while true. sure. one time, no need to be while true
-# get the if press the 
-#you will write the date number pomodoro and input to the file and get a popup that displays the count
-#when the count = 0 you pop up to audio + short break window
-#when that count = 0 you pop up to this window again!
-#start work and timer always on top. the break timer....well everythin should be on top! 
-
-#adn when done you cret
-
 #1 import
 import PySimpleGUI as sg
 
@@ -42,9 +25,6 @@ def start(count=1):
     layout = [[sg.Text(f'Pomodoro number {count}', size=( 0,1))],
               [sg.Text('What is the ONE THING I CAN DO, such as BY DOING IT, everything else becomes easier or unnecessary?')],
               [sg.Input(key='-INPUT-')],
-    ##As a way to update the pomodoro count if necesito
-    #          [sg.Text('Pomodoro number')],
-    #          [sg.Input(key='-COUNT-')],
               [sg.Button('DEEP'), sg.Button('Start', bind_return_key=True), sg.Button('Short Break'), sg.Button('Long Break'), sg.Button('Kill Pomodoro')],
               [sg.Text('20% Solution')]
               ]
@@ -118,11 +98,8 @@ def work(count):
             window.close()
             long_break(count)
         else:
-#music done work
+        #music done work
             playsound("smb_world.wav")
-            #subprocess.Popen(['start', 'smb_world.wav'], shell=True)
-            #time.sleep(10)
-            #os.system('TASKKILL /F /IM mpc-be64.exe')
             window.close()
             breaks(count)                    
             window.close()
@@ -150,11 +127,8 @@ def deep(count):
         timer -= 1000
         
     if timer < 1:
-#long pause music
+        #long pause music
         playsound("smb3_airship_clear.wav")
-#        subprocess.Popen(['start', 'smb3_airship_clear.wav'], shell=True)
-#        time.sleep(10)
-#        os.system('TASKKILL /F /IM mpc-be64.exe')
         window.close()
         long_break(count)
 
@@ -172,16 +146,11 @@ def test():
         timer -= 1000
         
     if timer < 1:
-#long pause music
+            #long pause music
             playsound("smb3_airship_clear.wav")
-   #         subprocess.Popen(['start', 'smb3_airship_clear.wav'], shell=True)
-   #         time.sleep(10)
-   #         os.system('TASKKILL /F /IM mpc-be64.exe')
             window.close()
             long_break(count)            
             
-
-
 def breaks(count):
     sg.theme('DarkGreen1')
     layout   = [[sg.Text('BREAK', size=(20,1))],
@@ -235,16 +204,11 @@ def long_break(count):
         window['-OUT-'].update(int(timer/60000))
         timer -= 1000        
     if timer < 1:
-#music to start working
+        #music to start working
         playsound('smw_course_clear.wav')
-#        subprocess.Popen(['start', 'smw_course_clear.wav'], shell=True)
-#        time.sleep(9)
-#        os.system('TASKKILL /F /IM mpc-be64.exe')
         window.close()
         start(count)
     else:
         window.close()
-
-
 
 start()
